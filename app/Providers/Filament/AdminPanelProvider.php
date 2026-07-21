@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(\App\Filament\Pages\Auth\Login::class)
             ->brandName('SMA AL-ISLAMI')
             ->brandLogo(asset('storage/SMA AL-ISLAMI.png'))
             ->brandLogoHeight('3rem')
