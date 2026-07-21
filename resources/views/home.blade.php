@@ -300,7 +300,7 @@
                 <!-- News Card -->
                 <div class="modern-card modern-card-hover group flex flex-col h-full">
                     <div class="aspect-w-16 aspect-h-10 relative overflow-hidden bg-slate-200">
-                        <img src="{{ $article->image ?? 'https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $article->title }}" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="{{ $article->image ? asset('storage/' . $article->image) : 'https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $article->title }}" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
                         <div class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider shadow">
                             Berita
                         </div>

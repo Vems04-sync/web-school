@@ -21,7 +21,7 @@
             <div class="mb-12">
                 <a href="{{ route('articles.show', $featured->slug) }}" class="modern-card modern-card-hover group block lg:grid lg:grid-cols-2">
                     <div class="h-64 lg:h-auto overflow-hidden bg-slate-200">
-                        <img src="{{ $featured->image ?? 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80' }}"
+                        <img src="{{ $featured->image ? asset('storage/' . $featured->image) : 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80' }}"
                              alt="{{ $featured->title }}"
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -54,7 +54,7 @@
                     @foreach($articles->skip(1) as $article)
                     <a href="{{ route('articles.show', $article->slug) }}" class="modern-card modern-card-hover group flex flex-col">
                         <div class="h-48 overflow-hidden bg-slate-200">
-                            <img src="{{ $article->image ?? 'https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=600&q=80' }}"
+                            <img src="{{ $article->image ? asset('storage/' . $article->image) : 'https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=600&q=80' }}"
                                  alt="{{ $article->title }}"
                                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>

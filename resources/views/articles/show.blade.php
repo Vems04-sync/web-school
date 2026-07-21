@@ -15,7 +15,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
             <div class="modern-card modern-card-hover overflow-hidden">
                 @if($article->image)
-                <img src="{{ $article->image }}" alt="{{ $article->title }}" class="w-full h-72 md:h-[450px] object-cover">
+                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-72 md:h-[450px] object-cover">
                 @else
                 <img src="https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=1200&q=80" alt="Placeholder" class="w-full h-72 md:h-[450px] object-cover">
                 @endif
@@ -23,7 +23,7 @@
                 <div class="p-8 md:p-12">
                     
                     <div class="prose prose-orange max-w-none text-gray-700 leading-relaxed">
-                        {!! nl2br(e($article->content)) !!}
+                        {!! $article->content !!}
                     </div>
                     
                     <div class="mt-12 pt-8 border-t border-gray-100 flex items-center justify-between">

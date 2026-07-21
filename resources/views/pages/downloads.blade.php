@@ -32,7 +32,7 @@
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500">{{ $doc->description }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ $doc->file_path }}" target="_blank" class="modern-btn modern-btn-secondary px-3 py-1.5 text-xs text-emerald-700 rounded-full">
+                                <a href="{{ asset('storage/' . $doc->file_path) }}" target="_blank" class="modern-btn modern-btn-secondary px-3 py-1.5 text-xs text-emerald-700 rounded-full">
                                     <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                     Download
                                 </a>
