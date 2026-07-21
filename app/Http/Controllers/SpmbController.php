@@ -46,21 +46,11 @@ class SpmbController extends Controller
 
     public function checkStatus()
     {
-        return view('pages.spmb-check');
+        return redirect(route('spmb.index') . '#alur-pendaftaran');
     }
 
     public function processCheckStatus(Request $request)
     {
-        $request->validate([
-            'registration_number' => 'required|string',
-        ]);
-
-        $applicant = SpmbApplicant::where('registration_number', $request->registration_number)->first();
-
-        if (!$applicant) {
-            return back()->with('error', 'Nomor Pendaftaran tidak ditemukan. Pastikan nomor yang dimasukkan benar.');
-        }
-
-        return view('pages.spmb-check', compact('applicant'));
+        return redirect(route('spmb.index') . '#alur-pendaftaran');
     }
 }
