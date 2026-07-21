@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-white pt-36 pb-20 text-white text-center">
+    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 pt-36 pb-20 text-white text-center">
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute -top-16 -left-12 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -right-10 w-80 h-80 bg-white/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 w-[38rem] h-[38rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
         </div>
         <div class="relative z-10 max-w-4xl mx-auto px-4">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white/90 text-xs font-bold uppercase tracking-wider mb-4">
