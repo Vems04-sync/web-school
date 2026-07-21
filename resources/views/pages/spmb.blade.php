@@ -25,10 +25,9 @@
                 Seleksi Penerimaan Siswa Baru SMA AL-ISLAMI – daftarkan diri Anda sekarang dan bergabunglah bersama ribuan lulusan unggul kami!
             </p>
 
-            <!-- Primary CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                      <a href="#alur-pendaftaran"
-                         class="modern-btn modern-btn-primary bg-gradient-to-r from-emerald-300 to-emerald-500 text-white hover:from-emerald-200 hover:to-emerald-400 px-8 py-4 text-lg font-black shadow-2xl">
+                         class="inline-flex items-center justify-center gap-2 bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-black rounded-full shadow-2xl transition duration-200 border-2 border-emerald-500/30">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
@@ -75,7 +74,7 @@
             <!-- Informasi Umum Pendaftaran -->
             <div class="modern-card modern-card-hover modern-card-soft p-8">
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -84,23 +83,23 @@
                 </div>
                 <ul class="space-y-4 text-sm text-gray-600">
                     <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                         <span>Pendaftaran dibuka mulai <strong>1 Februari – 30 Juni {{ date('Y') }}</strong></span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                         <span>Pendaftaran dilakukan <strong>online</strong> melalui portal ini</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                         <span>Tidak dipungut biaya pendaftaran (<strong>GRATIS</strong>)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                         <span>Tersedia pilihan jurusan <strong>TKJ, Akuntansi, dan Administrasi Perkantoran</strong></span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                         <span>Info lebih lanjut hubungi: <strong>Tata Usaha (021-XXXXXXX)</strong></span>
                     </li>
                 </ul>
@@ -187,10 +186,10 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @foreach([
-                    ['step' => '01', 'title' => 'Isi Formulir Online', 'desc' => 'Klik tombol "Daftar Sekarang" dan isi formulir Google Form dengan data diri yang benar dan lengkap.', 'color' => 'bg-orange-100 text-orange-600'],
-                    ['step' => '02', 'title' => 'Upload Dokumen', 'desc' => 'Siapkan dan bawa dokumen persyaratan ke sekolah saat verifikasi.', 'color' => 'bg-blue-100 text-blue-600'],
-                    ['step' => '03', 'title' => 'Ikuti Seleksi', 'desc' => 'Hadiri tes seleksi tulis dan wawancara sesuai jadwal yang telah ditentukan.', 'color' => 'bg-purple-100 text-purple-600'],
-                    ['step' => '04', 'title' => 'Pengumuman', 'desc' => 'Cek hasil pengumuman melalui portal ini atau hubungi TU sekolah.', 'color' => 'bg-emerald-100 text-emerald-600'],
+                    ['step' => '01', 'title' => 'Isi Formulir Online', 'desc' => 'Klik tombol "Daftar Sekarang" dan isi formulir Google Form dengan data diri yang benar dan lengkap.', 'color' => 'bg-emerald-100 text-emerald-600'],
+                    ['step' => '02', 'title' => 'Upload Dokumen', 'desc' => 'Siapkan dan bawa dokumen persyaratan ke sekolah saat verifikasi.', 'color' => 'bg-teal-100 text-teal-600'],
+                    ['step' => '03', 'title' => 'Ikuti Seleksi', 'desc' => 'Hadiri tes seleksi tulis dan wawancara sesuai jadwal yang telah ditentukan.', 'color' => 'bg-green-100 text-green-600'],
+                    ['step' => '04', 'title' => 'Pengumuman', 'desc' => 'Cek hasil pengumuman melalui portal ini atau hubungi TU sekolah.', 'color' => 'bg-emerald-200 text-emerald-700'],
                 ] as $item)
                 <div class="modern-card modern-card-hover modern-card-soft p-6 text-center">
                     <div class="w-14 h-14 mx-auto {{ $item['color'] }} rounded-2xl flex items-center justify-center font-black text-xl mb-4">{{ $item['step'] }}</div>
@@ -206,16 +205,16 @@
             <div class="max-w-3xl mx-auto">
                 <div class="modern-card modern-card-hover overflow-hidden">
                     <!-- Top Color Bar -->
-                    <div class="h-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600"></div>
+                    <div class="h-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500"></div>
                     <div class="p-10 text-center">
                         <!-- Icon -->
-                        <div class="w-20 h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                             </svg>
                         </div>
 
-                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-100 rounded-full text-sky-700 text-xs font-bold uppercase tracking-wider mb-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-700 text-xs font-bold uppercase tracking-wider mb-4">
                             Formulir Pendaftaran Online
                         </div>
 
@@ -227,28 +226,28 @@
                         </p>
 
                         <!-- Tips Sebelum Daftar -->
-                        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-left mb-8">
-                            <h4 class="text-sm font-bold text-amber-800 mb-3 flex items-center gap-2">
+                        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-left mb-8">
+                            <h4 class="text-sm font-bold text-emerald-800 mb-3 flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 Siapkan sebelum mengisi:
                             </h4>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-amber-700">
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-emerald-700">
                                 <li class="flex items-center gap-2">
-                                    <svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <svg class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                     Nomor NISN siswa
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <svg class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                     Nomor WhatsApp aktif orang tua
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <svg class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                     Nama sekolah asal (SD/MI)
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <svg class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                     Alamat lengkap tempat tinggal
                                 </li>
                             </ul>
@@ -256,8 +255,8 @@
 
                         <!-- CTA Button Utama -->
                         <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-black text-lg rounded-2xl shadow-xl hover:-translate-y-1 transition duration-200">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-black text-lg rounded-2xl shadow-2xl shadow-emerald-900/30 hover:-translate-y-1 transition duration-200 border border-emerald-700">
+                            <svg class="w-6 h-6 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                             </svg>
                             Buka Formulir Pendaftaran

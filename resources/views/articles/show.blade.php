@@ -1,13 +1,20 @@
 <x-app-layout>
     <!-- Header Banner -->
-    <div class="bg-emerald-900 pt-36 pb-24 text-white text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4 px-4 leading-tight max-w-4xl mx-auto">{{ $article->title }}</h1>
-        <p class="text-emerald-100 text-sm flex items-center justify-center gap-1.5">
-            <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            {{ $article->published_at ? $article->published_at->format('d M Y') : $article->created_at->format('d M Y') }}
-        </p>
+    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 pt-36 pb-24 text-white text-center">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 px-4 leading-tight max-w-4xl mx-auto">{{ $article->title }}</h1>
+            <p class="text-emerald-100 text-sm flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ $article->published_at ? $article->published_at->format('d M Y') : $article->created_at->format('d M Y') }}
+            </p>
+        </div>
     </div>
 
     <!-- Main Content -->

@@ -1,28 +1,38 @@
 <x-app-layout>
     <!-- Header Banner -->
-    <div class="bg-emerald-900 pt-36 pb-16 text-white text-center">
-        <h1 class="text-4xl font-bold mb-4">Akademik Sekolah</h1>
-        <p class="text-emerald-100 max-w-2xl mx-auto">Informasi Kurikulum Merdeka, Kalender Akademik Tahunan, serta Daftar Guru & Tenaga Kependidikan.</p>
+    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 pt-36 pb-20 text-white text-center">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white/90 text-xs font-bold uppercase tracking-wider mb-4">
+                Program Pembelajaran & Jadwal
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Akademik Sekolah</h1>
+            <p class="text-emerald-100 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">Informasi Kurikulum Merdeka, Kalender Akademik Tahunan, serta Daftar Guru & Tenaga Kependidikan.</p>
+        </div>
     </div>
 
     <!-- Quick Navigation Submenu Sticky -->
-    <div class="bg-white border-b border-gray-200 sticky top-20 z-30 shadow-sm">
+    <div class="bg-emerald-900 border-b border-emerald-700 sticky top-20 z-30 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-center space-x-4 sm:space-x-8 overflow-x-auto py-3 text-sm font-semibold">
-                <a href="#kurikulum" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
-                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <a href="#kurikulum" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                     1. Kurikulum
                 </a>
-                <a href="#kalender" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
-                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <a href="#kalender" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     2. Kalender Akademik
                 </a>
-                <a href="#guru" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
-                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <a href="#guru" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                     3. Guru & Tenaga Kependidikan

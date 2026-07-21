@@ -197,13 +197,14 @@
                     </div>
 
                     <!-- Badge Pencapaian/Statistik -->
-                    <div class="absolute bottom-6 -right-6 md:right-8 modern-card modern-card-soft text-white p-4 border border-emerald-500 flex items-center gap-3 bg-emerald-600">
-                        <svg class="w-10 h-10 text-emerald-100 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="absolute bottom-6 -right-6 md:right-8 rounded-2xl backdrop-blur-md p-4 border-2 border-emerald-400 flex items-center gap-3 bg-emerald-800/95 shadow-xl shadow-emerald-900/40">
+                        <svg class="w-10 h-10 text-yellow-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                         </svg>
                         <div>
-                            <p class="text-xs uppercase tracking-wider text-emerald-200">Terakreditasi</p>
-                            <p class="text-lg font-bold">Grade A (Sangat Baik)</p>
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-emerald-200">Terakreditasi</p>
+                            <p class="text-base font-black text-white leading-tight">Grade A</p>
+                            <p class="text-xs text-emerald-100 font-semibold">Sangat Baik</p>
                         </div>
                     </div>
                 </div>
