@@ -1,19 +1,9 @@
 <x-app-layout>
-    <!-- Header Banner -->
-    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 pt-36 pb-20 text-white text-center">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
-        </div>
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white/90 text-xs font-bold uppercase tracking-wider mb-4">
-                Identitas & Informasi Sekolah
-            </div>
-            <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Profil SMA AL-ISLAMI</h1>
-            <p class="text-emerald-100 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">Mengenal lebih dekat sejarah & filosofi, visi & misi, struktur organisasi, serta fasilitas unggulan sekolah kami.</p>
-        </div>
-    </div>
+    <x-page-header 
+        label="Identitas & Informasi Sekolah"
+        title="Profil SMA AL-ISLAMI"
+        subtitle="Mengenal lebih dekat sejarah & filosofi, visi & misi, struktur organisasi, serta fasilitas unggulan sekolah kami."
+    />
 
     <!-- Sub-Navigasi Sticky -->
     <div class="bg-emerald-900 border-b border-emerald-700 sticky top-20 z-30 shadow-lg">

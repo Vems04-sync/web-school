@@ -1,41 +1,24 @@
 <x-app-layout>
-    <!-- SPMB Hero Banner - Menonjol & Berwarna -->
-    <div class="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-white pt-36 pb-20 text-white overflow-hidden">
-        <!-- Decorative Background Circles -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute -top-20 -right-20 w-96 h-96 bg-emerald-400/15 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-white/15 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
+    <x-page-header 
+        title="Portal SPMB Online"
+        subtitle="Seleksi Penerimaan Siswa Baru SMA AL-ISLAMI – daftarkan diri Anda sekarang dan bergabunglah bersama ribuan lulusan unggul kami!"
+    >
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white text-sm font-bold mb-6">
+            <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            </span>
+            PENDAFTARAN DIBUKA · TAHUN AJARAN {{ date('Y') }}/{{ date('Y') + 1 }}
         </div>
-
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <!-- Live Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white text-sm font-bold mb-6">
-                <span class="relative flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
-                </span>
-                PENDAFTARAN DIBUKA · TAHUN AJARAN {{ date('Y') }}/{{ date('Y') + 1 }}
-            </div>
-
-            <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight leading-tight">
-                Portal SPMB <span class="text-emerald-300">Online</span>
-            </h1>
-            <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Seleksi Penerimaan Siswa Baru SMA AL-ISLAMI – daftarkan diri Anda sekarang dan bergabunglah bersama ribuan lulusan unggul kami!
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                     <a href="#alur-pendaftaran"
-                         class="inline-flex items-center justify-center gap-2 bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-black rounded-full shadow-2xl transition duration-200 border-2 border-emerald-500/30">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                    Daftar Sekarang
-                </a>
-            </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#alur-pendaftaran" class="inline-flex items-center justify-center gap-2 bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-black rounded-full shadow-2xl transition duration-200 border-2 border-emerald-500/30">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+                Daftar Sekarang
+            </a>
         </div>
-    </div>
+    </x-page-header>
 
     <!-- Notifikasi Sukses -->
     @if(session('success'))

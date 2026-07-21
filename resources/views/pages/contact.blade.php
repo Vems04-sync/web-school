@@ -1,24 +1,15 @@
 <x-app-layout>
-    <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 pt-36 pb-20 text-white text-center">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
+    <x-page-header 
+        label="Layanan & Informasi"
+        title="Hubungi Kami"
+        subtitle="Kami siap melayani dan menjawab pertanyaan Anda seputar SMA AL-ISLAMI dengan respons yang cepat, jelas, dan ramah."
+    >
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
+            <span class="modern-pill bg-white/10 text-white border border-white/10">Respon cepat</span>
+            <span class="modern-pill bg-white/10 text-white border border-white/10">Jam layanan aktif</span>
+            <span class="modern-pill bg-white/10 text-white border border-white/10">Informasi sekolah</span>
         </div>
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur border border-white/15 rounded-full text-white/90 text-xs font-bold uppercase tracking-wider mb-4">
-                Layanan & Informasi
-            </div>
-            <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Hubungi Kami</h1>
-            <p class="text-emerald-100 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">Kami siap melayani dan menjawab pertanyaan Anda seputar SMA AL-ISLAMI dengan respons yang cepat, jelas, dan ramah.</p>
-
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
-                <span class="modern-pill bg-white/10 text-white border border-white/10">Respon cepat</span>
-                <span class="modern-pill bg-white/10 text-white border border-white/10">Jam layanan aktif</span>
-                <span class="modern-pill bg-white/10 text-white border border-white/10">Informasi sekolah</span>
-            </div>
-        </div>
-    </div>
+    </x-page-header>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="modern-card modern-card-hover grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">

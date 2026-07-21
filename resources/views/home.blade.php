@@ -46,8 +46,15 @@
                 }, 6000);
             }
          }"
-         class="relative bg-slate-900 h-[70vh] sm:h-[80vh] overflow-hidden">
+         class="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 h-[70vh] sm:h-[80vh] overflow-hidden">
         
+        <!-- Decorative Background -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
         <!-- Slides Wrapper -->
         <template x-for="(slide, index) in slides" :key="index">
             <div x-show="activeSlide === index"
@@ -60,7 +67,10 @@
                  class="absolute inset-0 w-full h-full">
                 
                 <!-- Background Image -->
-                <img :src="slide.bgImage" :alt="slide.title" class="absolute inset-0 w-full h-full object-cover opacity-40 select-none">
+                <img :src="slide.bgImage" :alt="slide.title" class="absolute inset-0 w-full h-full object-cover opacity-20 select-none">
+                
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-emerald-950/40 mix-blend-multiply"></div>
                 
                 <!-- Content Overlay -->
                 <div class="absolute inset-0 flex items-center justify-center">
