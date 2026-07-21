@@ -1,111 +1,290 @@
 <x-app-layout>
-    <div class="bg-blue-900 py-16 text-white text-center">
-        <h1 class="text-4xl font-bold mb-4">Profil MTsN Nusantara</h1>
-        <p class="text-blue-100 max-w-2xl mx-auto">Mengenal lebih dekat sejarah, visi misi, serta struktur organisasi madrasah kami.</p>
+    <!-- Header Banner -->
+    <div class="bg-emerald-900 pt-36 pb-16 text-white text-center">
+        <h1 class="text-4xl font-bold mb-4">Profil SMA AL-ISLAMI</h1>
+        <p class="text-emerald-100 max-w-2xl mx-auto">Mengenal lebih dekat sejarah & filosofi, visi & misi, struktur organisasi, serta fasilitas unggulan sekolah kami.</p>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-        <!-- Sejarah -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-lg mb-4 text-blue-600">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    <!-- Sub-Navigasi Sticky -->
+    <div class="bg-white border-b border-gray-200 sticky top-20 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-4 sm:space-x-8 overflow-x-auto py-3 text-sm font-semibold">
+                <a href="#sejarah" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">Sejarah Berdiri</h2>
-                <div class="prose prose-orange text-gray-600">
-                    <p>MTsN Nusantara didirikan pada tahun 1990 dengan semangat untuk menyediakan pendidikan Islam yang terpadu dengan kurikulum nasional. Sejak awal berdirinya, madrasah ini telah meluluskan ribuan alumni yang tersebar di seluruh penjuru negeri.</p>
-                    <p>Seiring berjalannya waktu, MTsN Nusantara terus berinovasi dalam metode pembelajaran, pengadaan fasilitas unggul, serta penerapan teknologi pendidikan guna menyongsong era revolusi industri 4.0.</p>
-                </div>
+                    Sejarah & Identitas
+                </a>
+                <a href="#visi-misi" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    Visi & Misi
+                </a>
+                <a href="#struktur" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Struktur Organisasi
+                </a>
+                <a href="#fasilitas" class="text-gray-600 hover:text-emerald-600 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9" />
+                    </svg>
+                    Fasilitas Sekolah
+                </a>
             </div>
-            <div class="bg-gray-200 rounded-2xl h-80 overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Sejarah" class="w-full h-full object-cover">
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        
+        <!-- 1. SEJARAH & IDENTITAS -->
+        <section id="sejarah" class="scroll-mt-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider">
+                        Profil & Perjalanan
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Sejarah, Logo & Filosofi Sekolah</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        SMA AL-ISLAMI didirikan dengan komitmen kuat untuk mencetak lulusan berakhlak mulia, cerdas, dan terampil. Nama ini dipilih sebagai identitas sekolah yang menegaskan semangat keislaman, kemandirian, dan prestasi.
+                    </p>
+                    
+                    <!-- Filosofi & Identitas Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="modern-card modern-card-hover modern-card-soft p-5">
+                            <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Filosofi Logo</h4>
+                            <p class="text-xs text-gray-500">Perisai melambangkan ketahanan moral, obor melambangkan pencerahan ilmu pengetahuan, dan roda gigi melambangkan kompetensi vokasi industri.</p>
+                        </div>
+
+                        <div class="modern-card modern-card-hover modern-card-soft p-5">
+                            <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Nilai Utama (Core Values)</h4>
+                            <p class="text-xs text-gray-500">Religius, Jujur, Disiplin, Inovatif, dan Kolaboratif menjadi pijakan utama dalam budaya belajar mengajar harian kami.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative bg-gradient-to-br from-emerald-50 to-white p-8 rounded-3xl border border-emerald-100 text-center shadow-sm w-full max-w-md">
+                        <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="w-36 h-36 mx-auto object-contain mb-4 drop-shadow-md">
+                        <h3 class="text-xl font-bold text-slate-900">SMA AL-ISLAMI</h3>
+                        <p class="text-xs text-emerald-600 font-semibold uppercase tracking-widest mt-1">Unggul • Islami • Profesional</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Visi Misi -->
-        <section class="bg-blue-50 rounded-3xl p-8 md:p-12 shadow-sm border border-blue-100">
+        <!-- 2. VISI & MISI -->
+        <section id="visi-misi" class="scroll-mt-32 bg-emerald-50 rounded-3xl p-8 md:p-12 shadow-sm border border-emerald-100">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-900">Visi & Misi</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-blue-500">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Visi</h3>
-                    <p class="text-center text-gray-600 italic">"Mewujudkan madrasah hebat bermartabat dengan keunggulan akhlak, akademik, dan literasi teknologi menuju generasi emas islami."</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-emerald-200 rounded-full text-emerald-700 text-xs font-bold uppercase tracking-wider mb-4">
+                    Arah Pengembangan
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-blue-500">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Misi</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            Menyelenggarakan pendidikan Islam yang integratif.
+                <h2 class="text-3xl font-extrabold text-emerald-950">Visi & Misi Sekolah</h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-2">Komitmen bersama seluruh civitas akademika dalam membentuk masa depan siswa yang cemerlang.</p>
+            </div>
+            
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Visi Card -->
+                <div class="modern-card modern-card-hover modern-card-soft p-8 border-t-4 border-emerald-600 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">V</div>
+                            <h3 class="text-2xl font-bold text-slate-900">Visi Utama</h3>
+                        </div>
+                        <p class="text-slate-700 italic text-lg leading-relaxed bg-emerald-50/50 p-5 rounded-xl border border-emerald-100">
+                            "Mewujudkan SMA AL-ISLAMI sebagai pusat pendidikan yang unggul, berakhlak mulia, berprestasi, dan berwawasan teknologi menuju generasi emas indonesia."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Misi Card -->
+                <div class="modern-card modern-card-hover modern-card-soft p-8 border-t-4 border-emerald-600">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">M</div>
+                        <h3 class="text-2xl font-bold text-slate-900">Misi Sekolah</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Menyelenggarakan pembelajaran integratif berbasis nilai-nilai keislaman dan karakter bangsa.</span>
                         </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            Meningkatkan prestasi akademik dan non-akademik siswa.
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Meningkatkan kualitas kompetensi vokasi sesuai dengan tuntutan Dunia Kerja & Dunia Industri (IDUKA).</span>
                         </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            Membekali siswa dengan keterampilan teknologi dan literasi digital.
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Membekali siswa dengan keterampilan teknologi informasi, wirausaha, serta literasi digital modern.</span>
                         </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            Membangun lingkungan sekolah yang asri, aman, dan nyaman.
+                        <li class="flex items-start gap-3">
+                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Menciptakan lingkungan sekolah yang aman, asri, kondusif, dan ramah anak.</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Struktur Organisasi -->
-        <section>
+        <!-- 3. STRUKTUR ORGANISASI -->
+        <section id="struktur" class="scroll-mt-32">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Struktur Organisasi</h2>
-                <p class="mt-4 text-gray-600">Jajaran pimpinan dan staf pengajar MTsN Nusantara.</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4">
+                    Kepemimpinan & Tata Pengelola
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-900">Struktur Organisasi Sekolah</h2>
+                <p class="mt-4 text-gray-600">Jajaran pimpinan, kepala program keahlian, guru, dan staf tata usaha.</p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <!-- Kepala Madrasah -->
-                    <div class="md:col-span-3 mb-8">
-                        <div class="inline-block bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                            <div class="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                                <svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    
+                    <!-- Kepala Sekolah -->
+                    <div class="md:col-span-3 mb-4">
+                        <div class="modern-card modern-card-hover modern-card-soft inline-block p-6 max-w-sm">
+                            <div class="w-24 h-24 bg-emerald-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden ring-4 ring-emerald-50">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Kepala Sekolah" class="w-full h-full object-cover">
                             </div>
-                            <h4 class="font-bold text-gray-900 text-lg">Dr. H. Ahmad Fulan, M.Pd</h4>
-                            <p class="text-sm text-blue-600 font-medium">Kepala Madrasah</p>
+                            <h4 class="font-bold text-slate-900 text-lg">Dr. H. Ahmad Fulan, M.Pd</h4>
+                            <p class="text-sm text-emerald-600 font-semibold mt-1">Kepala Sekolah</p>
                         </div>
                     </div>
                     
-                    <!-- Wakasek 1 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                            <svg class="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    <!-- Wakasek Kurikulum -->
+                    <div class="modern-card modern-card-hover modern-card-soft p-6">
+                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Wakasek 1" class="w-full h-full object-cover">
                         </div>
-                        <h4 class="font-bold text-gray-900">Budi Santoso, S.Pd</h4>
-                        <p class="text-sm text-blue-600">Waka Kurikulum</p>
+                        <h4 class="font-bold text-slate-900">Budi Santoso, S.Pd</h4>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Kurikulum</p>
                     </div>
 
-                    <!-- Wakasek 2 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                            <svg class="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    <!-- Wakasek Kesiswaan -->
+                    <div class="modern-card modern-card-hover modern-card-soft p-6">
+                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1580894732413-a751516a4032?auto=format&fit=crop&w=400&q=80" alt="Wakasek 2" class="w-full h-full object-cover">
                         </div>
-                        <h4 class="font-bold text-gray-900">Siti Aminah, M.Ag</h4>
-                        <p class="text-sm text-blue-600">Waka Kesiswaan</p>
+                        <h4 class="font-bold text-slate-900">Siti Aminah, M.Ag</h4>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Kesiswaan</p>
                     </div>
 
-                    <!-- Wakasek 3 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                            <svg class="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    <!-- Wakasek Sarpras & Humas -->
+                    <div class="modern-card modern-card-hover modern-card-soft p-6">
+                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Wakasek 3" class="w-full h-full object-cover">
                         </div>
-                        <h4 class="font-bold text-gray-900">Ahmad Yani, S.E</h4>
-                        <p class="text-sm text-blue-600">Waka Sarana & Prasarana</p>
+                        <h4 class="font-bold text-slate-900">Ahmad Yani, S.E</h4>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Sarana & Prasarana</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 4. FASILITAS SEKOLAH -->
+        <section id="fasilitas" class="scroll-mt-32">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4">
+                    Sarana Penunjang Belajar
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-900">Fasilitas Penunjang Pendidikan</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Sarana dan prasarana modern untuk mendukung kegiatan akademik, praktik vokasi, dan pengembangan bakat siswa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Fasilitas 1 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Laboratorium Komputer & Komputer Vokasi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Vokasi</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Laboratorium Komputer Modern</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Dilengkapi dengan puluhan unit komputer spesifikasi tinggi, jaringan internet cepat, dan perangkat lunak standar industri.</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 2 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80" alt="Perpustakaan Digital" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Literasi</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Perpustakaan & E-Library</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Koleksi ribuan buku fisik dan akses repositori e-book digital yang nyaman untuk ruang baca siswa.</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 3 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Lapangan Olahraga" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Olahraga</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Lapangan Olahraga Multi-Fungsi</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Fasilitas outdoor penunjang kegiatan futsal, basket, voli, dan upacara bendera yang luas dan bersih.</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 4 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=600&q=80" alt="Masjid Sekolah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Ibadah</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Masjid & Pusat Keagamaan</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Masjid yang megah dan bersih untuk shalat berjamaah, kajian islami, dan program pembiasaan Al-Quran.</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 5 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Bengkel Praktik Industri" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Praktik</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Bengkel Praktik Vokasi</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Area kerja praktik dengan peralatan standar industri untuk mengasah keahlian teknis siswa secara langsung.</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 6 -->
+                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden bg-slate-200 relative">
+                        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=600&q=80" alt="Kantin Sehat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Kenyamanan</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Kantin Sehat & Ruang Terbuka</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">Menyediakan jajanan harian higienis dan area bersantai yang asri bagi seluruh warga sekolah.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </div>
 </x-app-layout>

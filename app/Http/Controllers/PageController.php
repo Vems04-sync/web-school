@@ -18,6 +18,16 @@ class PageController extends Controller
         return view('pages.profile');
     }
 
+    public function academic()
+    {
+        return view('pages.academic');
+    }
+
+    public function kesiswaan()
+    {
+        return view('pages.kesiswaan');
+    }
+
     public function contact()
     {
         return view('pages.contact');

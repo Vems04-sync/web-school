@@ -8,6 +8,8 @@ use App\Http\Controllers\DownloadController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/profil', [PageController::class, 'profile'])->name('profile');
+Route::get('/akademik', [PageController::class, 'academic'])->name('academic');
+Route::get('/kesiswaan', [PageController::class, 'kesiswaan'])->name('kesiswaan');
 Route::get('/kontak', [PageController::class, 'contact'])->name('contact');
 
 Route::get('/berita', [ArticleController::class, 'index'])->name('articles.index');

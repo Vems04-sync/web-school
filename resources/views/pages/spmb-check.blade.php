@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="bg-slate-900 py-16 text-white text-center">
+    <div class="bg-emerald-900 pt-36 pb-16 text-white text-center">
         <h1 class="text-4xl font-bold mb-4 uppercase tracking-wider">Cek Status Kelulusan</h1>
-        <p class="text-gray-400 max-w-2xl mx-auto">Pantau hasil seleksi penerimaan siswa baru SMK Raden Rahmat secara *real-time*.</p>
+        <p class="text-emerald-100 max-w-2xl mx-auto">Pantau hasil seleksi penerimaan siswa baru SMA AL-ISLAMI secara *real-time*.</p>
     </div>
 
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -19,24 +19,24 @@
         </div>
         @endif
 
-        <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+        <div class="modern-card modern-card-hover p-8">
             <form action="{{ route('spmb.processCheck') }}" method="POST">
                 @csrf
                 <div class="mb-6">
                     <label for="registration_number" class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Nomor Registrasi SPMB</label>
-                    <input type="text" name="registration_number" id="registration_number" value="{{ old('registration_number') }}" placeholder="Contoh: SPMB-2026-ABCDE" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-gray-50 uppercase" required>
+                    <input type="text" name="registration_number" id="registration_number" value="{{ old('registration_number') }}" placeholder="Contoh: SPMB-2026-ABCDE" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 uppercase" required>
                     @error('registration_number')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
-                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 transition uppercase tracking-wider">
+                <button type="submit" class="modern-btn modern-btn-primary w-full py-3 px-4 uppercase tracking-wider text-sm">
                     Periksa Status
                 </button>
             </form>
         </div>
 
         @if(isset($applicant))
-        <div class="mt-12 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+        <div class="mt-12 modern-card modern-card-hover overflow-hidden">
             <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                 <h3 class="text-lg font-bold text-slate-900 uppercase">Hasil Pencarian</h3>
             </div>
@@ -56,8 +56,8 @@
                         <svg class="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                     </div>
                     <h5 class="text-xl font-bold text-green-600 mb-2">SELAMAT! ANDA DITERIMA</h5>
-                    <p class="text-gray-600 mb-6">Anda dinyatakan lulus seleksi masuk SMK Raden Rahmat. Silakan segera melakukan daftar ulang.</p>
-                    <a href="{{ route('spmb.print', $applicant->id) }}" class="inline-flex justify-center items-center px-6 py-2 border border-transparent text-sm font-bold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition uppercase tracking-wider">
+                    <p class="text-gray-600 mb-6">Anda dinyatakan lulus seleksi masuk SMA AL-ISLAMI. Silakan segera melakukan daftar ulang.</p>
+                    <a href="{{ route('spmb.print', $applicant->id) }}" class="modern-btn modern-btn-primary px-6 py-2 uppercase tracking-wider text-sm">
                         Cetak Bukti Pendaftaran
                     </a>
                 

@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>SMK Raden Rahmat Mojosari</h1>
+        <h1>SMA AL-ISLAMI</h1>
         <p>Panitia Seleksi Penerimaan Siswa Baru Tahun Ajaran 2026/2027</p>
     </div>
 
