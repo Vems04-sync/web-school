@@ -4,9 +4,9 @@
             
             <!-- Logo & About -->
             <div class="lg:col-span-1">
-                <a href="/" class="flex items-center gap-3 mb-6">
-                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="w-10 h-10 object-contain">
-                    <span class="font-bold text-xl text-white tracking-tight">SMA AL-ISLAMI</span>
+                <a href="/" class="flex items-center gap-3 mb-4">
+                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="h-16 w-auto object-contain">
+                    <span class="font-bold text-2xl text-white tracking-tight">SMA AL-ISLAMI</span>
                 </a>
                 <p class="text-sm leading-relaxed mb-6">
                     Sekolah menengah pertama yang berdedikasi membentuk siswa berakhlak mulia, berprestasi, dan siap melanjutkan pendidikan ke jenjang berikutnya.

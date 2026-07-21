@@ -18,8 +18,8 @@
             <!-- Logo Section -->
             <div class="flex items-center">
                 <a href="/" class="flex-shrink-0 flex items-center gap-3">
-                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="w-10 h-10 object-contain">
-                    <span :class="isTop ? 'text-white' : 'text-emerald-900'" class="font-bold text-xl tracking-tight transition duration-300">SMA AL-ISLAMI</span>
+                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="h-16 w-auto object-contain">
+                    <span :class="isTop ? 'text-white' : 'text-emerald-900'" class="font-bold text-2xl tracking-tight transition duration-300">SMA AL-ISLAMI</span>
                 </a>
             </div>
 

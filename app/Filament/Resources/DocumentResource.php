@@ -17,7 +17,11 @@ class DocumentResource extends Resource
 {
     protected static ?string $model = Document::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static ?string $navigationGroup = 'Konten';
+    protected static ?string $navigationLabel = 'Dokumen';
+    protected static ?string $modelLabel = 'Dokumen';
+    protected static ?string $pluralModelLabel = 'Dokumen';
 
     public static function form(Form $form): Form
     {
@@ -28,9 +32,13 @@ class DocumentResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('file_path')
+                Forms\Components\FileUpload::make('file_path')
+                    ->label('File')
                     ->required()
-                    ->maxLength(255),
+                    ->directory('documents')
+                    ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
+                    ->maxSize(10240) // 10MB
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -40,16 +48,9 @@ class DocumentResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('file_path')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->formatStateUsing(fn ($state) => $state ? \Carbon\Carbon::parse($state)->format('d M Y') : '')
+                    ->sortable(),
             ])
             ->filters([
                 //

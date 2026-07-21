@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\SpmbApplicant;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -10,7 +11,11 @@ class SpmbController extends Controller
 {
     public function index()
     {
-        return view('pages.spmb');
+        $gformUrl = Setting::get('spmb_gform_url', 'https://forms.google.com');
+        if (!empty($gformUrl) && !str_starts_with($gformUrl, 'http://') && !str_starts_with($gformUrl, 'https://')) {
+            $gformUrl = 'https://' . $gformUrl;
+        }
+        return view('pages.spmb', compact('gformUrl'));
     }
 
     public function store(Request $request)

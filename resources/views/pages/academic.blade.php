@@ -197,47 +197,19 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Guru 1 -->
+                @forelse($teachers as $teacher)
                 <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group text-center p-6">
-                    <div class="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 ring-4 ring-blue-50 group-hover:ring-blue-100 transition">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Dra. Hj. Nurul Hidayah" class="w-full h-full object-cover">
+                    <div class="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 ring-4 ring-emerald-50 group-hover:ring-emerald-100 transition">
+                        <img src="{{ $teacher->image ? asset('storage/' . $teacher->image) : 'https://ui-avatars.com/api/?name='.urlencode($teacher->name).'&color=0f172a&background=f1f5f9' }}" alt="{{ $teacher->name }}" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-slate-900 text-lg mb-1">Dra. Hj. Nurul Hidayah</h4>
-                    <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">Guru Bahasa Indonesia</p>
-                    <p class="text-gray-500 text-xs leading-relaxed">Pengajar senior dengan pengalaman mengajar 15+ tahun di bidang sastra dan pengembangan literasi siswa.</p>
+                    <h4 class="font-bold text-slate-900 text-lg mb-1">{{ $teacher->name }}</h4>
+                    <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">{{ $teacher->subject ?? 'Guru Mata Pelajaran' }}</p>
                 </div>
-
-                <!-- Guru 2 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group text-center p-6">
-                    <div class="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 ring-4 ring-blue-50 group-hover:ring-blue-100 transition">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Bambang Kurniawan, M.T" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-slate-900 text-lg mb-1">Bambang Kurniawan, M.T</h4>
-                    <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Kaprog Industri & IT</p>
-                    <p class="text-gray-500 text-xs leading-relaxed">Praktisi industri TI & Jaringan Komputer, pembina sertifikasi vokasi siswa.</p>
+                @empty
+                <div class="col-span-1 sm:col-span-2 lg:col-span-4 py-10 text-center text-gray-500">
+                    Belum ada data guru yang ditambahkan.
                 </div>
-
-                <!-- Guru 3 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group text-center p-6">
-                    <div class="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 ring-4 ring-blue-50 group-hover:ring-blue-100 transition">
-                        <img src="https://images.unsplash.com/photo-1580894732413-a751516a4032?auto=format&fit=crop&w=400&q=80" alt="Siti Fatimah, S.Pd" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-slate-900 text-lg mb-1">Siti Fatimah, S.Pd</h4>
-                    <p class="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-3">Guru Matematika & Sains</p>
-                    <p class="text-gray-500 text-xs leading-relaxed">Pembina klub olimpiade matematika sekolah dengan berbagai raihan medali daerah.</p>
-                </div>
-
-                <!-- Guru 4 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group text-center p-6">
-                    <div class="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 ring-4 ring-blue-50 group-hover:ring-blue-100 transition">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Ahmad Rifa'i, S.Ag" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-slate-900 text-lg mb-1">Ahmad Rifa'i, S.Ag</h4>
-                    <p class="text-xs font-semibold text-amber-600 uppercase tracking-wider mb-3">Guru PAI & Tahfidz</p>
-                    <p class="text-gray-500 text-xs leading-relaxed">Pengasuh pembiasaan ibadah harian dan pembina bimbingan al-Quran siswa.</p>
-                </div>
-
+                @endforelse
             </div>
         </section>
 

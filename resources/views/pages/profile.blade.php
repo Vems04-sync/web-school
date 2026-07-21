@@ -35,7 +35,7 @@
                     <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    Struktur Organisasi
+                    Struktur Organisasi & Guru
                 </a>
                 <a href="#fasilitas" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
                     <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -162,52 +162,30 @@
                     Kepemimpinan & Tata Pengelola
                 </div>
                 <h2 class="text-3xl font-extrabold text-slate-900">Struktur Organisasi Sekolah</h2>
-                <p class="mt-4 text-gray-600">Jajaran pimpinan, kepala program keahlian, guru, dan staf tata usaha.</p>
+                <p class="mt-4 text-gray-600">Jajaran pimpinan, kepala program keahlian, dan pengurus inti.</p>
             </div>
             
             <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     
-                    <!-- Kepala Sekolah -->
-                    <div class="md:col-span-3 mb-4">
-                        <div class="modern-card modern-card-hover modern-card-soft inline-block p-6 max-w-sm">
-                            <div class="w-24 h-24 bg-emerald-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden ring-4 ring-emerald-50">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Kepala Sekolah" class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="font-bold text-slate-900 text-lg">Dr. H. Ahmad Fulan, M.Pd</h4>
-                            <p class="text-sm text-emerald-600 font-semibold mt-1">Kepala Sekolah</p>
+                    @forelse($organizations as $org)
+                    <div class="modern-card modern-card-hover modern-card-soft p-6 {{ $loop->first ? 'md:col-span-3 mb-4 max-w-sm mx-auto' : '' }}">
+                        <div class="w-24 h-24 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden {{ $loop->first ? 'ring-4 ring-emerald-50' : '' }}">
+                            <img src="{{ $org->image ? asset('storage/' . $org->image) : 'https://ui-avatars.com/api/?name='.urlencode($org->name).'&color=047857&background=d1fae5' }}" alt="{{ $org->name }}" class="w-full h-full object-cover">
                         </div>
+                        <h4 class="font-bold text-slate-900 {{ $loop->first ? 'text-lg' : '' }}">{{ $org->name }}</h4>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">{{ $org->position }}</p>
                     </div>
-                    
-                    <!-- Wakasek Kurikulum -->
-                    <div class="modern-card modern-card-hover modern-card-soft p-6">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Wakasek 1" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="font-bold text-slate-900">Budi Santoso, S.Pd</h4>
-                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Kurikulum</p>
+                    @empty
+                    <div class="md:col-span-3 py-10 text-center text-gray-500">
+                        Belum ada data struktur organisasi yang ditambahkan.
                     </div>
-
-                    <!-- Wakasek Kesiswaan -->
-                    <div class="modern-card modern-card-hover modern-card-soft p-6">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1580894732413-a751516a4032?auto=format&fit=crop&w=400&q=80" alt="Wakasek 2" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="font-bold text-slate-900">Siti Aminah, M.Ag</h4>
-                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Kesiswaan</p>
-                    </div>
-
-                    <!-- Wakasek Sarpras & Humas -->
-                    <div class="modern-card modern-card-hover modern-card-soft p-6">
-                        <div class="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Wakasek 3" class="w-full h-full object-cover">
-                        </div>
-                        <h4 class="font-bold text-slate-900">Ahmad Yani, S.E</h4>
-                        <p class="text-xs text-emerald-600 font-semibold mt-1">Waka Sarana & Prasarana</p>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
+
+
 
         <!-- 4. FASILITAS SEKOLAH -->
         <section id="fasilitas" class="scroll-mt-32">
@@ -220,79 +198,24 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Fasilitas 1 -->
+                @forelse($facilities as $facility)
                 <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
                     <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Laboratorium Komputer & Komputer Vokasi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Vokasi</div>
+                        <img src="{{ $facility->image ? asset('storage/' . $facility->image) : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $facility->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        @if($facility->category)
+                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">{{ $facility->category }}</div>
+                        @endif
                     </div>
                     <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Laboratorium Komputer Modern</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Dilengkapi dengan puluhan unit komputer spesifikasi tinggi, jaringan internet cepat, dan perangkat lunak standar industri.</p>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">{{ $facility->name }}</h3>
+                        <p class="text-gray-600 text-xs leading-relaxed">{{ $facility->description ?? 'Deskripsi fasilitas belum tersedia.' }}</p>
                     </div>
                 </div>
-
-                <!-- Fasilitas 2 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
-                    <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80" alt="Perpustakaan Digital" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Literasi</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Perpustakaan & E-Library</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Koleksi ribuan buku fisik dan akses repositori e-book digital yang nyaman untuk ruang baca siswa.</p>
-                    </div>
+                @empty
+                <div class="col-span-1 md:col-span-2 lg:col-span-3 py-10 text-center text-gray-500">
+                    Belum ada data fasilitas yang ditambahkan.
                 </div>
-
-                <!-- Fasilitas 3 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
-                    <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Lapangan Olahraga" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Olahraga</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Lapangan Olahraga Multi-Fungsi</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Fasilitas outdoor penunjang kegiatan futsal, basket, voli, dan upacara bendera yang luas dan bersih.</p>
-                    </div>
-                </div>
-
-                <!-- Fasilitas 4 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
-                    <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=600&q=80" alt="Masjid Sekolah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Ibadah</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Masjid & Pusat Keagamaan</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Masjid yang megah dan bersih untuk shalat berjamaah, kajian islami, dan program pembiasaan Al-Quran.</p>
-                    </div>
-                </div>
-
-                <!-- Fasilitas 5 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
-                    <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Bengkel Praktik Industri" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Praktik</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Bengkel Praktik Vokasi</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Area kerja praktik dengan peralatan standar industri untuk mengasah keahlian teknis siswa secara langsung.</p>
-                    </div>
-                </div>
-
-                <!-- Fasilitas 6 -->
-                <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
-                    <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=600&q=80" alt="Kantin Sehat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">Kenyamanan</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">Kantin Sehat & Ruang Terbuka</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Menyediakan jajanan harian higienis dan area bersantai yang asri bagi seluruh warga sekolah.</p>
-                    </div>
-                </div>
-
+                @endforelse
             </div>
         </section>
 
