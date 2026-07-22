@@ -19,6 +19,7 @@ class FacilityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $navigationGroup = 'Profil Sekolah';
+    protected static ?int $navigationSort = 4;
     protected static ?string $navigationLabel = 'Fasilitas Sekolah';
     protected static ?string $modelLabel = 'Fasilitas';
     protected static ?string $pluralModelLabel = 'Fasilitas Sekolah';
@@ -40,8 +41,12 @@ class FacilityResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto Fasilitas')
+                    ->image()
+                    ->disk('public')
                     ->directory('facilities')
-                    ->image(),
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).'),
             ]);
     }
 
@@ -56,7 +61,17 @@ class FacilityResource extends Resource
                     ->label('Kategori')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Foto'),
+                    ->label('Foto')
+                    ->circular()
+                    ->getStateUsing(function (Facility $record) {
+                        if (!$record->image) {
+                            return 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&q=80';
+                        }
+                        if (str_starts_with($record->image, 'http://') || str_starts_with($record->image, 'https://')) {
+                            return $record->image;
+                        }
+                        return asset('storage/' . $record->image);
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

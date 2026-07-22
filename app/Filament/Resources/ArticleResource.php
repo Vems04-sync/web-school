@@ -18,32 +18,42 @@ class ArticleResource extends Resource
     protected static ?string $model = Article::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
-    protected static ?string $navigationGroup = 'Konten';
-    protected static ?string $navigationLabel = 'Artikel';
-    protected static ?string $modelLabel = 'Artikel';
-    protected static ?string $pluralModelLabel = 'Artikel';
+    protected static ?string $navigationGroup = 'Berita';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationLabel = 'Berita & Acara';
+    protected static ?string $modelLabel = 'Berita';
+    protected static ?string $pluralModelLabel = 'Berita & Acara';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Judul Artikel / Berita')
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
                 Forms\Components\TextInput::make('slug')
+                    ->label('Slug URL')
                     ->required()
                     ->maxLength(255)
                     ->unique(ignoreRecord: true),
                 Forms\Components\RichEditor::make('content')
+                    ->label('Isi Artikel / Berita')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Gambar Utama')
                     ->image()
+                    ->disk('public')
                     ->directory('articles')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).')
                     ->columnSpanFull(),
                 Forms\Components\DateTimePicker::make('published_at')
+                    ->label('Tanggal & Waktu Publikasi')
                     ->default(now()),
             ]);
     }
@@ -52,12 +62,26 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Gambar')
+                    ->circular()
+                    ->getStateUsing(function (Article $record) {
+                        $rawImage = $record->getRawOriginal('image');
+                        if (!$rawImage) {
+                            return 'https://images.unsplash.com/photo-1546410531-bea5aadcb6ce?auto=format&fit=crop&w=600&q=80';
+                        }
+                        if (str_starts_with($rawImage, 'http://') || str_starts_with($rawImage, 'https://')) {
+                            return $rawImage;
+                        }
+                        return asset('storage/' . $rawImage);
+                    }),
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Judul Berita')
                     ->searchable()
                     ->limit(50),
                 Tables\Columns\TextColumn::make('published_at')
-                    ->formatStateUsing(fn ($state) => $state ? \Carbon\Carbon::parse($state)->format('d M Y H:i') : '')
+                    ->label('Tanggal Publikasi')
+                    ->formatStateUsing(fn ($state) => $state ? \Carbon\Carbon::parse($state)->format('d M Y H:i') : '-')
                     ->sortable(),
             ])
             ->filters([

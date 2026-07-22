@@ -52,6 +52,7 @@
                         <a href="{{ route('profile') }}#sejarah" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Sejarah & Identitas</a>
                         <a href="{{ route('profile') }}#visi-misi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Visi & Misi</a>
                         <a href="{{ route('profile') }}#struktur" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Struktur Organisasi</a>
+                        <a href="{{ route('profile') }}#guru" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Guru & Tenaga Kependidikan</a>
                         <a href="{{ route('profile') }}#fasilitas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Fasilitas Sekolah</a>
                     </div>
                 </div>
@@ -72,7 +73,6 @@
                         <a href="{{ route('academic') }}" class="block px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 border-b border-gray-100">Akademik Sekolah</a>
                         <a href="{{ route('academic') }}#kurikulum" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Kurikulum Merdeka</a>
                         <a href="{{ route('academic') }}#kalender" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Kalender Akademik</a>
-                        <a href="{{ route('academic') }}#guru" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700">Guru & Tenaga Kependidikan</a>
                     </div>
                 </div>
 

@@ -8,7 +8,7 @@
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
             </span>
-            PENDAFTARAN DIBUKA · TAHUN AJARAN {{ date('Y') }}/{{ date('Y') + 1 }}
+            {{ $spmbStatusText }}
         </div>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#alur-pendaftaran" class="inline-flex items-center justify-center gap-2 bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-black rounded-full shadow-2xl transition duration-200 border-2 border-emerald-500/30">
@@ -51,8 +51,8 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
 
-        <!-- BAGIAN 1: Info Pendaftaran, Persyaratan, Jadwal -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- BAGIAN 1: Info Pendaftaran & Persyaratan -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
             <!-- Informasi Umum Pendaftaran -->
             <div class="modern-card modern-card-hover modern-card-soft p-8">
@@ -65,26 +65,14 @@
                     <h2 class="text-xl font-bold text-slate-900">Informasi Pendaftaran</h2>
                 </div>
                 <ul class="space-y-4 text-sm text-gray-600">
+                    @forelse($spmbInfoItems as $item)
                     <li class="flex items-start gap-3">
                         <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>Pendaftaran dibuka mulai <strong>1 Februari – 30 Juni {{ date('Y') }}</strong></span>
+                        <span>{{ $item }}</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>Pendaftaran dilakukan <strong>online</strong> melalui portal ini</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>Tidak dipungut biaya pendaftaran (<strong>GRATIS</strong>)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>Tersedia pilihan jurusan <strong>TKJ, Akuntansi, dan Administrasi Perkantoran</strong></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        <span>Info lebih lanjut hubungi: <strong>Tata Usaha (021-XXXXXXX)</strong></span>
-                    </li>
+                    @empty
+                    <li class="text-gray-400 text-xs">Belum ada informasi pendaftaran.</li>
+                    @endforelse
                 </ul>
             </div>
 
@@ -99,65 +87,15 @@
                     <h2 class="text-xl font-bold text-slate-900">Persyaratan Dokumen</h2>
                 </div>
                 <ul class="space-y-3 text-sm text-gray-600">
+                    @forelse($spmbRequirementsItems as $item)
                     <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
-                        Fotokopi Ijazah / SKHUN SD/MI yang telah dilegalisir
+                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">{{ $loop->iteration }}</span>
+                        <span>{{ $item }}</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
-                        Fotokopi Kartu Keluarga (KK)
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
-                        Akta Kelahiran asli/fotokopi
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
-                        Pas foto berwarna 3×4 sebanyak 4 lembar
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">5</span>
-                        Surat Keterangan Sehat dari dokter
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">6</span>
-                        Rapor kelas 4, 5, dan 6 SD/MI (asli)
-                    </li>
+                    @empty
+                    <li class="text-gray-400 text-xs">Belum ada persyaratan dokumen.</li>
+                    @endforelse
                 </ul>
-            </div>
-
-            <!-- Jadwal Seleksi -->
-            <div class="modern-card modern-card-hover modern-card-soft p-8">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h2 class="text-xl font-bold text-slate-900">Jadwal Seleksi</h2>
-                </div>
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between text-sm py-3 border-b border-gray-100">
-                        <span class="text-gray-600">Buka Pendaftaran</span>
-                        <span class="font-bold text-slate-900 text-right">1 Feb – 30 Jun {{ date('Y') }}</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm py-3 border-b border-gray-100">
-                        <span class="text-gray-600">Tes Seleksi Tulis</span>
-                        <span class="font-bold text-slate-900 text-right">5 Jul {{ date('Y') }}</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm py-3 border-b border-gray-100">
-                        <span class="text-gray-600">Tes Wawancara</span>
-                        <span class="font-bold text-slate-900 text-right">8 Jul {{ date('Y') }}</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm py-3 border-b border-gray-100">
-                        <span class="text-gray-600">Pengumuman Hasil</span>
-                        <span class="font-bold text-emerald-600 text-right">10 Jul {{ date('Y') }}</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm py-3">
-                        <span class="text-gray-600">Daftar Ulang</span>
-                        <span class="font-bold text-slate-900 text-right">11–13 Jul {{ date('Y') }}</span>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -167,16 +105,14 @@
                 <h2 class="text-2xl font-extrabold text-slate-900">Alur Pendaftaran</h2>
                 <p class="mt-2 text-gray-500 text-sm">Ikuti langkah mudah berikut untuk menyelesaikan pendaftaran Anda</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 @foreach([
                     ['step' => '01', 'title' => 'Isi Formulir Online', 'desc' => 'Klik tombol "Daftar Sekarang" dan isi formulir Google Form dengan data diri yang benar dan lengkap.', 'color' => 'bg-emerald-100 text-emerald-600'],
-                    ['step' => '02', 'title' => 'Upload Dokumen', 'desc' => 'Siapkan dan bawa dokumen persyaratan ke sekolah saat verifikasi.', 'color' => 'bg-teal-100 text-teal-600'],
-                    ['step' => '03', 'title' => 'Ikuti Seleksi', 'desc' => 'Hadiri tes seleksi tulis dan wawancara sesuai jadwal yang telah ditentukan.', 'color' => 'bg-green-100 text-green-600'],
-                    ['step' => '04', 'title' => 'Pengumuman', 'desc' => 'Cek hasil pengumuman melalui portal ini atau hubungi TU sekolah.', 'color' => 'bg-emerald-200 text-emerald-700'],
+                    ['step' => '02', 'title' => 'Upload / Serahkan Dokumen', 'desc' => 'Siapkan dan serahkan dokumen persyaratan pendaftaran ke sekolah saat verifikasi.', 'color' => 'bg-teal-100 text-teal-600'],
                 ] as $item)
-                <div class="modern-card modern-card-hover modern-card-soft p-6 text-center">
-                    <div class="w-14 h-14 mx-auto {{ $item['color'] }} rounded-2xl flex items-center justify-center font-black text-xl mb-4">{{ $item['step'] }}</div>
-                    <h3 class="font-bold text-slate-900 mb-2">{{ $item['title'] }}</h3>
+                <div class="modern-card modern-card-hover modern-card-soft p-8 text-center">
+                    <div class="w-16 h-16 mx-auto {{ $item['color'] }} rounded-2xl flex items-center justify-center font-black text-2xl mb-4">{{ $item['step'] }}</div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">{{ $item['title'] }}</h3>
                     <p class="text-xs text-gray-500 leading-relaxed">{{ $item['desc'] }}</p>
                 </div>
                 @endforeach

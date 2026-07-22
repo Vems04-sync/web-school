@@ -1,121 +1,6 @@
 <x-app-layout>
     <!-- Hero Slider -->
-    <div x-data="{ 
-            activeSlide: 0, 
-            slides: [
-                { 
-                    tagline: 'Penerimaan Siswa Baru 2026/2027', 
-                    title: 'Unggul, Islami, Kompetitif, dan Profesional', 
-                    description: 'Mewujudkan generasi emas yang berkarakter, terampil di bidang vokasi, dan siap bersaing di dunia industri.',
-                    bgImage: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80',
-                    primaryBtnText: 'Daftar SPMB',
-                    primaryBtnUrl: '{{ route('spmb.index') }}',
-                    secondaryBtnText: 'Jelajahi Profil',
-                    secondaryBtnUrl: '{{ route('profile') }}'
-                },
-                { 
-                    tagline: 'Fasilitas Vokasi Modern', 
-                    title: 'Kurikulum Berbasis Industri & Teknologi', 
-                    description: 'Menyediakan sarana laboratorium praktik tercanggih guna mempersiapkan lulusan yang siap kerja dan berwirausaha.',
-                    bgImage: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80',
-                    primaryBtnText: 'Info Akademik',
-                    primaryBtnUrl: '#',
-                    secondaryBtnText: 'Hubungi Kami',
-                    secondaryBtnUrl: '{{ route('contact') }}'
-                },
-                { 
-                    tagline: 'Prestasi & Ekstrakurikuler', 
-                    title: 'Mengembangkan Potensi Terbaik Siswa', 
-                    description: 'Membina minat, bakat, keagamaan, serta karakter kepemimpinan siswa melalui segudang prestasi nasional.',
-                    bgImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80',
-                    primaryBtnText: 'Lihat Berita',
-                    primaryBtnUrl: '{{ route('articles.index') }}',
-                    secondaryBtnText: 'Unduhan Brosur',
-                    secondaryBtnUrl: '{{ route('downloads.index') }}'
-                }
-            ],
-            next() {
-                this.activeSlide = (this.activeSlide + 1) % this.slides.length;
-            },
-            prev() {
-                this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
-            },
-            init() {
-                setInterval(() => {
-                    this.next();
-                }, 6000);
-            }
-         }"
-         class="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-700 h-[70vh] sm:h-[80vh] overflow-hidden">
-        
-        <!-- Decorative Background -->
-        <div class="absolute inset-0 pointer-events-none z-0">
-            <div class="absolute -top-16 left-0 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 w-[34rem] h-[34rem] -translate-x-1/2 -translate-y-1/2 bg-white/5 rounded-full blur-3xl"></div>
-        </div>
-
-        <!-- Slides Wrapper -->
-        <template x-for="(slide, index) in slides" :key="index">
-            <div x-show="activeSlide === index"
-                 x-transition:enter="transition ease-out duration-1000"
-                 x-transition:enter-start="opacity-0 scale-105"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-500"
-                 x-transition:leave-start="opacity-100"
-                 x-transition:leave-end="opacity-0"
-                 class="absolute inset-0 w-full h-full">
-                
-                <!-- Background Image -->
-                <img :src="slide.bgImage" :alt="slide.title" class="absolute inset-0 w-full h-full object-cover opacity-20 select-none">
-                
-                <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-emerald-950/40 mix-blend-multiply"></div>
-                
-                <!-- Content Overlay -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto z-10">
-                        <p x-text="slide.tagline" class="text-emerald-300 font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 drop-shadow-md"></p>
-                        <h1 x-text="slide.title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg"></h1>
-                        <p x-text="slide.description" class="text-base sm:text-xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto drop-shadow-md"></p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                            <a :href="slide.primaryBtnUrl" class="modern-btn modern-btn-primary w-full sm:w-auto px-8 py-3 uppercase tracking-wider text-sm sm:text-base">
-                                <span x-text="slide.primaryBtnText"></span>
-                                <svg class="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                            <a :href="slide.secondaryBtnUrl" class="modern-btn modern-btn-secondary w-full sm:w-auto px-8 py-3 uppercase tracking-wider text-sm sm:text-base">
-                                <span x-text="slide.secondaryBtnText"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </template>
-
-        <!-- Slider Controls (Arrows) -->
-        <button @click="prev()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition z-20 focus:outline-none hidden sm:flex items-center justify-center">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-        </button>
-        <button @click="next()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition z-20 focus:outline-none hidden sm:flex items-center justify-center">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-        </button>
-
-        <!-- Slider Indicators (Dots) -->
-        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2.5 z-20">
-            <template x-for="(slide, index) in slides" :key="index">
-                <button @click="activeSlide = index" 
-                        class="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none"
-                        :class="activeSlide === index ? 'bg-emerald-500 scale-125' : 'bg-white/50 hover:bg-white/80'"></button>
-            </template>
-        </div>
-    </div>
+    <x-hero-slider :slides="$heroSlides" />
 
     <!-- Tautan Cepat (Shortcuts) -->
     <div class="relative z-20 -mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,8 +87,8 @@
                     <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-green-50 rounded-2xl -z-10"></div>
                     
                     <!-- Gambar Utama -->
-                    <div class="relative modern-card overflow-hidden aspect-w-4 aspect-h-3 border-4 border-white bg-slate-200 shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1541178735463-3ee7c74af011?auto=format&fit=crop&w=800&q=80" alt="Siswa Belajar" class="w-full h-80 object-cover">
+                    <div class="relative modern-card overflow-hidden border-4 border-white bg-gradient-to-br from-emerald-50 via-white to-emerald-100 shadow-2xl flex items-center justify-center p-6 h-80 text-center">
+                        <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="SMA AL-ISLAMI" class="w-64 h-64 object-contain drop-shadow-lg">
                     </div>
 
                     <!-- Badge Pencapaian/Statistik -->
@@ -236,46 +121,27 @@
                     <div class="border-l-4 border-emerald-600 pl-6 my-6 bg-slate-50 py-4 pr-4 rounded-r-lg">
                         <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 block mb-1">Visi Kami</span>
                         <p class="text-lg italic text-slate-700 font-medium">
-                            "Mewujudkan lembaga pendidikan yang hebat bermartabat dengan keunggulan akhlak, akademik, dan literasi teknologi menuju generasi emas."
+                            "{{ $schoolVision }}"
                         </p>
                     </div>
 
                     <!-- Misi Singkat -->
                     <div class="space-y-4">
                         <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 block">Misi Utama</span>
+                        @php
+                            $misiLines = array_filter(explode("\n", $schoolMission));
+                        @endphp
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            @foreach($misiLines as $misiItem)
                             <li class="flex items-start gap-3">
                                 <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mt-0.5 flex-shrink-0">
                                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-slate-600 text-sm">Menyelenggarakan pendidikan yang integratif dan berkarakter mulia.</span>
+                                <span class="text-slate-600 text-sm">{{ trim($misiItem) }}</span>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-slate-600 text-sm">Meningkatkan prestasi akademik dan non-akademik siswa secara kompetitif.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-slate-600 text-sm">Membekali siswa dengan keterampilan teknologi dan literasi digital.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-slate-600 text-sm">Membangun lingkungan sekolah yang asri, aman, dan nyaman untuk belajar.</span>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
 

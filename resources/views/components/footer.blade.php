@@ -1,3 +1,22 @@
+@php
+    $footerAddress = \App\Models\Setting::get('school_address', 'Jl. Raya Desa Kara, Kec. Torjun, Kab. Sampang, Jawa Timur 69271');
+    $footerPhone = \App\Models\Setting::get('school_phone', '0831-4947-3113');
+    $footerEmail = \App\Models\Setting::get('school_email', 'smaalislamiofficial@gmail.com');
+    $rawWa = \App\Models\Setting::get('school_whatsapp');
+    if (empty($rawWa) || str_contains($rawWa, '812-3456-7890') || str_contains($rawWa, '6281234567890')) {
+        $rawWa = $footerPhone;
+    }
+    $digits = preg_replace('/\D/', '', $rawWa);
+    if (str_starts_with($digits, '0')) {
+        $digits = '62' . substr($digits, 1);
+    }
+    $footerWhatsapp = !empty($digits) ? 'https://wa.me/' . $digits : '#';
+    $footerInstagram = \App\Models\Setting::get('school_instagram', 'https://www.instagram.com/smaalislamiofficial');
+    $footerFacebook = \App\Models\Setting::get('school_facebook', 'https://www.facebook.com/share/1E9FKd3Kz1/');
+    $footerYoutube = \App\Models\Setting::get('school_youtube', 'https://youtube.com/@smaalislamiofficial');
+    $footerTiktok = \App\Models\Setting::get('school_tiktok', 'https://tiktok.com/@smaalislamiofficial');
+@endphp
+
 <footer class="bg-emerald-950 text-emerald-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -5,25 +24,42 @@
             <!-- Logo & About -->
             <div class="lg:col-span-1">
                 <a href="/" class="flex items-center gap-3 mb-4">
-                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="h-16 w-auto object-contain">
+                    <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="h-24 w-auto object-contain">
                     <span class="font-bold text-2xl text-white tracking-tight">SMA AL-ISLAMI</span>
                 </a>
                 <p class="text-sm leading-relaxed mb-6">
-                    Sekolah menengah pertama yang berdedikasi membentuk siswa berakhlak mulia, berprestasi, dan siap melanjutkan pendidikan ke jenjang berikutnya.
+                    Sekolah menengah atas yang berdedikasi membentuk siswa berakhlak mulia, berprestasi, dan siap melanjutkan pendidikan ke jenjang berikutnya.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#" class="modern-btn modern-btn-ghost h-10 w-10 rounded-full p-0 text-white">
-                        <span class="sr-only">Facebook</span>
-                        f
+                <!-- Social Media Icons -->
+                <div class="flex space-x-3">
+                    @if(!empty($footerFacebook))
+                    <a href="{{ $footerFacebook }}" target="_blank" rel="noopener noreferrer"
+                       title="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                       style="background-color: #1877F2;">
+                        <i class="bi bi-facebook text-white text-base"></i>
                     </a>
-                    <a href="#" class="modern-btn modern-btn-ghost h-10 w-10 rounded-full p-0 text-white">
-                        <span class="sr-only">Instagram</span>
-                        ig
+                    @endif
+                    @if(!empty($footerInstagram))
+                    <a href="{{ $footerInstagram }}" target="_blank" rel="noopener noreferrer"
+                       title="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                       style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                        <i class="bi bi-instagram text-white text-base"></i>
                     </a>
-                    <a href="#" class="modern-btn modern-btn-ghost h-10 w-10 rounded-full p-0 text-white">
-                        <span class="sr-only">YouTube</span>
-                        yt
+                    @endif
+                    @if(!empty($footerYoutube))
+                    <a href="{{ $footerYoutube }}" target="_blank" rel="noopener noreferrer"
+                       title="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                       style="background-color: #FF0000;">
+                        <i class="bi bi-youtube text-white text-base"></i>
                     </a>
+                    @endif
+                    @if(!empty($footerTiktok))
+                    <a href="{{ $footerTiktok }}" target="_blank" rel="noopener noreferrer"
+                       title="TikTok" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                       style="background-color: #000000;">
+                        <i class="bi bi-tiktok text-white text-base"></i>
+                    </a>
+                    @endif
                 </div>
             </div>
 
@@ -32,21 +68,24 @@
                 <h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Tautan Cepat</h3>
                 <ul class="space-y-3">
                     <li><a href="{{ route('profile') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Profil Sekolah</a></li>
+                    <li><a href="{{ route('academic') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Akademik</a></li>
                     <li><a href="{{ route('spmb.index') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Info SPMB</a></li>
-                    <li><a href="{{ route('articles.index') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Berita & Informasi</a></li>
+                    <li><a href="{{ route('articles.index') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Berita &amp; Informasi</a></li>
                     <li><a href="{{ route('downloads.index') }}" class="hover:text-emerald-300 text-sm transition flex items-center"><svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg> Download Dokumen</a></li>
                 </ul>
             </div>
 
-            <!-- Program Unggulan -->
+            <!-- Ekstrakurikuler -->
             <div>
-                <h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Program Unggulan</h3>
+                <h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Ekstrakurikuler</h3>
                 <ul class="space-y-3">
-                    <li class="text-sm">Pembinaan Karakter dan Akhlak</li>
-                    <li class="text-sm">Literasi, Numerasi, dan Bahasa</li>
-                    <li class="text-sm">Tahfidz dan Pendidikan Keagamaan</li>
-                    <li class="text-sm">Ekstrakurikuler dan Prestasi Siswa</li>
-                    <li class="text-sm">Pembelajaran Digital dan Kreatif</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Organisasi Siswa Intra Sekolah</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Gerakan Pramuka</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Futsal</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Menjahit</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Tata Boga</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Tata Busana</li>
+                    <li class="text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>Pangkas Rambut</li>
                 </ul>
             </div>
 
@@ -55,16 +94,20 @@
                 <h3 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Hubungi Kami</h3>
                 <ul class="space-y-4">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 text-emerald-300 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span class="text-sm leading-relaxed">Jl. Raya Mojosari No. 123, Mojokerto, Jawa Timur</span>
+                        <i class="bi bi-geo-alt-fill text-emerald-300 mr-3 mt-0.5 flex-shrink-0 text-base"></i>
+                        <span class="text-sm leading-relaxed">{{ $footerAddress }}</span>
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-5 h-5 text-emerald-300 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                        <span class="text-sm">(0321) 123456</span>
+                        <i class="bi bi-whatsapp text-emerald-300 mr-3 flex-shrink-0 text-base"></i>
+                        @if(!empty($footerWhatsapp))
+                        <a href="{{ $footerWhatsapp }}" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-emerald-300 transition">{{ $footerPhone }}</a>
+                        @else
+                        <span class="text-sm">{{ $footerPhone }}</span>
+                        @endif
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-5 h-5 text-emerald-300 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                        <span class="text-sm">info@smkradenrahmatmojosari.sch.id</span>
+                        <i class="bi bi-envelope-fill text-emerald-300 mr-3 flex-shrink-0 text-base"></i>
+                        <a href="mailto:{{ $footerEmail }}" class="text-sm hover:text-emerald-300 transition break-all">{{ $footerEmail }}</a>
                     </li>
                 </ul>
             </div>

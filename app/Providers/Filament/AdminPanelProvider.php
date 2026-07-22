@@ -28,10 +28,26 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login(\App\Filament\Pages\Auth\Login::class)
             ->brandName('SMA AL-ISLAMI')
-            ->brandLogo(asset('storage/SMA AL-ISLAMI.png'))
-            ->brandLogoHeight('3rem')
+            ->brandLogo(fn () => new \Illuminate\Support\HtmlString('
+                <div class="flex items-center gap-3">
+                    <img src="' . asset('storage/SMA AL-ISLAMI.png') . '" alt="SMA AL-ISLAMI" class="h-10 w-auto object-contain">
+                    <span class="font-extrabold text-lg text-slate-900 dark:text-white tracking-tight">SMA AL-ISLAMI</span>
+                </div>
+            '))
+            ->brandLogoHeight('3.2rem')
+            ->favicon(asset('favicon.png'))
             ->colors([
                 'primary' => Color::Emerald,
+            ])
+            ->navigationGroups([
+                'Beranda',
+                'Profil Sekolah',
+                'Akademik',
+                'Kesiswaan',
+                'Berita',
+                'Kontak',
+                'Download',
+                'Pendaftaran',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -53,6 +69,10 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::BODY_START,
+                fn (): string => \Illuminate\Support\Facades\Blade::render('<x-admin-loader />')
+            )
             ->authMiddleware([
                 Authenticate::class,
             ]);

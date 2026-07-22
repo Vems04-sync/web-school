@@ -55,7 +55,11 @@ class AchievementResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto Dokumentasi')
                     ->image()
-                    ->directory('achievements'),
+                    ->disk('public')
+                    ->directory('achievements')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).'),
             ]);
     }
 
@@ -63,7 +67,18 @@ class AchievementResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')->label('Foto'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->circular()
+                    ->getStateUsing(function (Achievement $record) {
+                        if (!$record->image) {
+                            return 'https://images.unsplash.com/photo-1578269174936-2709b6aeb913?auto=format&fit=crop&w=600&q=80';
+                        }
+                        if (str_starts_with($record->image, 'http://') || str_starts_with($record->image, 'https://')) {
+                            return $record->image;
+                        }
+                        return asset('storage/' . $record->image);
+                    }),
                 Tables\Columns\TextColumn::make('student_name')
                     ->label('Nama Siswa')
                     ->searchable(),

@@ -37,7 +37,11 @@ class ExtracurricularResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto/Logo Ekskul')
                     ->image()
-                    ->directory('extracurriculars'),
+                    ->disk('public')
+                    ->directory('extracurriculars')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).'),
             ]);
     }
 
@@ -45,7 +49,18 @@ class ExtracurricularResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')->label('Foto'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->circular()
+                    ->getStateUsing(function (Extracurricular $record) {
+                        if (!$record->image) {
+                            return 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80';
+                        }
+                        if (str_starts_with($record->image, 'http://') || str_starts_with($record->image, 'https://')) {
+                            return $record->image;
+                        }
+                        return asset('storage/' . $record->image);
+                    }),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama')
                     ->searchable(),

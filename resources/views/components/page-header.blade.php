@@ -1,16 +1,30 @@
 @props(['title', 'subtitle' => null, 'label' => null])
 
-<div x-data="{ 
-        activeSlide: 0, 
-        slides: [
+@php
+    $heroSlides = \App\Models\HeroSlide::where('is_active', true)->orderBy('order', 'asc')->get();
+    $slideImages = $heroSlides->map(function($slide) {
+        $img = $slide->image;
+        return $img ? (str_starts_with($img, 'http') ? $img : asset('storage/' . $img)) : 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80';
+    })->values()->toArray();
+
+    if (empty($slideImages)) {
+        $slideImages = [
             'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80',
             'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80',
             'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80'
-        ],
+        ];
+    }
+@endphp
+
+<div x-data="{ 
+        activeSlide: 0, 
+        slides: {{ json_encode($slideImages) }},
         next() {
+            if (!this.slides || this.slides.length === 0) return;
             this.activeSlide = (this.activeSlide + 1) % this.slides.length;
         },
         init() {
+            if (!this.slides || this.slides.length === 0) return;
             setInterval(() => {
                 this.next();
             }, 6000);
@@ -30,7 +44,7 @@
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
                  class="absolute inset-0 w-full h-full">
-                <img :src="slide" class="absolute inset-0 w-full h-full object-cover opacity-20 select-none">
+                <img :src="slide" class="absolute inset-0 w-full h-full object-cover opacity-25 select-none">
             </div>
         </template>
         

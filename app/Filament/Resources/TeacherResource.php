@@ -19,7 +19,8 @@ class TeacherResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
     protected static ?string $navigationGroup = 'Profil Sekolah';
-    protected static ?string $navigationLabel = 'Data Guru';
+    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationLabel = 'Guru & Staf';
     protected static ?string $modelLabel = 'Guru';
     protected static ?string $pluralModelLabel = 'Data Guru';
 
@@ -42,7 +43,11 @@ class TeacherResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto')
                     ->image()
-                    ->directory('teachers'),
+                    ->disk('public')
+                    ->directory('teachers')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).'),
             ]);
     }
 
@@ -50,7 +55,18 @@ class TeacherResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')->label('Foto'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->circular()
+                    ->getStateUsing(function (Teacher $record) {
+                        if (!$record->image) {
+                            return 'https://ui-avatars.com/api/?name=' . urlencode($record->name) . '&color=047857&background=d1fae5';
+                        }
+                        if (str_starts_with($record->image, 'http://') || str_starts_with($record->image, 'https://')) {
+                            return $record->image;
+                        }
+                        return asset('storage/' . $record->image);
+                    }),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama')
                     ->searchable(),

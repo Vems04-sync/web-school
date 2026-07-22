@@ -7,14 +7,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Extracurricular extends Model
+class HeroSlide extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'tagline',
+        'title',
         'description',
         'image',
+        'primary_btn_text',
+        'primary_btn_url',
+        'secondary_btn_text',
+        'secondary_btn_url',
+        'order',
+        'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'order' => 'integer',
     ];
 
     protected function image(): Attribute
@@ -26,7 +38,7 @@ class Extracurricular extends Model
                     return $value;
                 }
                 $disk = Storage::disk('public');
-                if (!$disk->exists($value) && !$disk->exists('extracurriculars/' . $value)) {
+                if (!$disk->exists($value) && !$disk->exists('slides/' . $value)) {
                     return null;
                 }
                 return $value;

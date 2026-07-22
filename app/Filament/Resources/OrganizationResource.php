@@ -19,6 +19,7 @@ class OrganizationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationGroup = 'Profil Sekolah';
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationLabel = 'Struktur Organisasi';
     protected static ?string $modelLabel = 'Struktur Organisasi';
     protected static ?string $pluralModelLabel = 'Struktur Organisasi';
@@ -38,7 +39,11 @@ class OrganizationResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto')
                     ->image()
-                    ->directory('organizations'),
+                    ->disk('public')
+                    ->directory('organizations')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('Maksimal ukuran gambar yang dapat diupload adalah 2 MB (Format: JPG, JPEG, PNG, WEBP).'),
                 Forms\Components\TextInput::make('order')
                     ->label('Urutan Tampil')
                     ->required()
@@ -51,7 +56,18 @@ class OrganizationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')->label('Foto'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->circular()
+                    ->getStateUsing(function (Organization $record) {
+                        if (!$record->image) {
+                            return 'https://ui-avatars.com/api/?name=' . urlencode($record->name) . '&color=047857&background=d1fae5';
+                        }
+                        if (str_starts_with($record->image, 'http://') || str_starts_with($record->image, 'https://')) {
+                            return $record->image;
+                        }
+                        return asset('storage/' . $record->image);
+                    }),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama Lengkap')
                     ->searchable(),

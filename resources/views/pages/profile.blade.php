@@ -2,7 +2,7 @@
     <x-page-header 
         label="Identitas & Informasi Sekolah"
         title="Profil SMA AL-ISLAMI"
-        subtitle="Mengenal lebih dekat sejarah & filosofi, visi & misi, struktur organisasi, serta fasilitas unggulan sekolah kami."
+        subtitle="Mengenal lebih dekat sejarah, visi & misi, struktur organisasi, fasilitas, serta guru & tenaga kependidikan SMA AL-ISLAMI."
     />
 
     <!-- Sub-Navigasi Sticky -->
@@ -25,7 +25,14 @@
                     <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    Struktur Organisasi & Guru
+                    Struktur Organisasi
+                </a>
+                <a href="#guru" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                    Guru & Tenaga Kependidikan
                 </a>
                 <a href="#fasilitas" class="text-emerald-200 hover:text-white px-3 py-1.5 rounded-full hover:bg-emerald-700 transition flex items-center gap-1.5 whitespace-nowrap">
                     <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,10 +53,10 @@
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider">
                         Profil & Perjalanan
                     </div>
-                    <h2 class="text-3xl font-extrabold text-slate-900">Sejarah, Logo & Filosofi Sekolah</h2>
-                    <p class="text-gray-600 leading-relaxed">
-                        SMA AL-ISLAMI didirikan dengan komitmen kuat untuk mencetak lulusan berakhlak mulia, cerdas, dan terampil. Nama ini dipilih sebagai identitas sekolah yang menegaskan semangat keislaman, kemandirian, dan prestasi.
-                    </p>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Sejarah SMA AL-ISLAMI</h2>
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        {!! nl2br(e($schoolHistory)) !!}
+                    </div>
                     
                     <!-- Filosofi & Identitas Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
@@ -60,7 +67,7 @@
                                 </svg>
                             </div>
                             <h4 class="font-bold text-slate-900 mb-1">Filosofi Logo</h4>
-                            <p class="text-xs text-gray-500">Perisai melambangkan ketahanan moral, obor melambangkan pencerahan ilmu pengetahuan, dan roda gigi melambangkan kompetensi vokasi industri.</p>
+                            <p class="text-xs text-gray-500">{{ $logoPhilosophy }}</p>
                         </div>
 
                         <div class="modern-card modern-card-hover modern-card-soft p-5">
@@ -70,14 +77,14 @@
                                 </svg>
                             </div>
                             <h4 class="font-bold text-slate-900 mb-1">Nilai Utama (Core Values)</h4>
-                            <p class="text-xs text-gray-500">Religius, Jujur, Disiplin, Inovatif, dan Kolaboratif menjadi pijakan utama dalam budaya belajar mengajar harian kami.</p>
+                            <p class="text-xs text-gray-500">{{ $coreValues }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative bg-gradient-to-br from-emerald-50 to-white p-8 rounded-3xl border border-emerald-100 text-center shadow-sm w-full max-w-md">
-                        <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="w-36 h-36 mx-auto object-contain mb-4 drop-shadow-md">
+                        <img src="{{ Storage::url('SMA AL-ISLAMI.png') }}" alt="Logo SMA AL-ISLAMI" class="w-48 h-48 mx-auto object-contain mb-4 drop-shadow-md">
                         <h3 class="text-xl font-bold text-slate-900">SMA AL-ISLAMI</h3>
                         <p class="text-xs text-emerald-600 font-semibold uppercase tracking-widest mt-1">Unggul • Islami • Profesional</p>
                     </div>
@@ -92,10 +99,10 @@
                     Arah Pengembangan
                 </div>
                 <h2 class="text-3xl font-extrabold text-emerald-950">Visi & Misi Sekolah</h2>
-                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-2">Komitmen bersama seluruh civitas akademika dalam membentuk masa depan siswa yang cemerlang.</p>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-2">Fokus utama pengembangan sekolah dalam membentuk generasi beriman, cerdas, dan berakhlakul karimah.</p>
             </div>
             
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Visi Card -->
                 <div class="modern-card modern-card-hover modern-card-soft p-8 border-t-4 border-emerald-600 flex flex-col justify-between">
                     <div>
@@ -104,7 +111,7 @@
                             <h3 class="text-2xl font-bold text-slate-900">Visi Utama</h3>
                         </div>
                         <p class="text-slate-700 italic text-lg leading-relaxed bg-emerald-50/50 p-5 rounded-xl border border-emerald-100">
-                            "Mewujudkan SMA AL-ISLAMI sebagai pusat pendidikan yang unggul, berakhlak mulia, berprestasi, dan berwawasan teknologi menuju generasi emas indonesia."
+                            "{{ $schoolVision }}"
                         </p>
                     </div>
                 </div>
@@ -115,31 +122,18 @@
                         <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">M</div>
                         <h3 class="text-2xl font-bold text-slate-900">Misi Sekolah</h3>
                     </div>
+                    @php
+                        $misiLines = array_filter(explode("\n", $schoolMission));
+                    @endphp
                     <ul class="space-y-3 text-slate-600 text-sm">
+                        @foreach($misiLines as $misiItem)
                         <li class="flex items-start gap-3">
                             <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>Menyelenggarakan pembelajaran integratif berbasis nilai-nilai keislaman dan karakter bangsa.</span>
+                            <span>{{ trim($misiItem) }}</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Meningkatkan kualitas kompetensi vokasi sesuai dengan tuntutan Dunia Kerja & Dunia Industri (IDUKA).</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Membekali siswa dengan keterampilan teknologi informasi, wirausaha, serta literasi digital modern.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Menciptakan lingkungan sekolah yang aman, asri, kondusif, dan ramah anak.</span>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -152,32 +146,131 @@
                     Kepemimpinan & Tata Pengelola
                 </div>
                 <h2 class="text-3xl font-extrabold text-slate-900">Struktur Organisasi Sekolah</h2>
-                <p class="mt-4 text-gray-600">Jajaran pimpinan, kepala program keahlian, dan pengurus inti.</p>
+                <p class="mt-4 text-gray-600">Daftar pimpinan, guru, dan staf tata usaha SMA AL-ISLAMI.</p>
             </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    
-                    @forelse($organizations as $org)
-                    <div class="modern-card modern-card-hover modern-card-soft p-6 {{ $loop->first ? 'md:col-span-3 mb-4 max-w-sm mx-auto' : '' }}">
-                        <div class="w-24 h-24 bg-gray-100 rounded-full mx-auto mb-4 overflow-hidden {{ $loop->first ? 'ring-4 ring-emerald-50' : '' }}">
-                            <img src="{{ $org->image ? asset('storage/' . $org->image) : 'https://ui-avatars.com/api/?name='.urlencode($org->name).'&color=047857&background=d1fae5' }}" alt="{{ $org->name }}" class="w-full h-full object-cover">
+
+            @php 
+                $headmaster = $organizations->firstWhere('order', 1); 
+                $members = $organizations->where('order', '>', 1)->values();
+                $memberCount = $members->count();
+            @endphp
+
+            @if($headmaster || $memberCount > 0)
+            <div class="w-full overflow-x-auto px-2">
+                <div class="min-w-0 w-full">
+
+                    {{-- ===== LEVEL 1: KEPALA SEKOLAH ===== --}}
+                    @if($headmaster)
+                    <div class="flex justify-center">
+                        <div class="bg-emerald-800 border-t-4 border-emerald-400 rounded-2xl shadow-lg p-5 text-center w-52 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                            <!-- Motif Lingkaran -->
+                            <div class="absolute inset-0 opacity-[0.12] pointer-events-none">
+                                <svg viewBox="0 0 100 100" class="w-full h-full" fill="white">
+                                    <circle cx="90" cy="10" r="35"/>
+                                    <circle cx="10" cy="85" r="25"/>
+                                    <circle cx="70" cy="95" r="12"/>
+                                </svg>
+                            </div>
+                            <div class="relative w-20 h-20 bg-emerald-700 rounded-full mx-auto mb-3 overflow-hidden ring-4 ring-emerald-600">
+                                <img src="{{ $headmaster->image ? asset('storage/' . $headmaster->image) : 'https://ui-avatars.com/api/?name='.urlencode($headmaster->name).'&color=047857&background=d1fae5&size=160' }}" alt="{{ $headmaster->name }}" class="w-full h-full object-cover">
+                            </div>
+                            <p class="relative text-xs font-bold text-emerald-300 uppercase tracking-wide mb-1">{{ $headmaster->position }}</p>
+                            <h4 class="relative font-bold text-white text-sm leading-snug">{{ $headmaster->name }}</h4>
                         </div>
-                        <h4 class="font-bold text-slate-900 {{ $loop->first ? 'text-lg' : '' }}">{{ $org->name }}</h4>
-                        <p class="text-xs text-emerald-600 font-semibold mt-1">{{ $org->position }}</p>
                     </div>
-                    @empty
-                    <div class="md:col-span-3 py-10 text-center text-gray-500">
-                        Belum ada data struktur organisasi yang ditambahkan.
+                    @endif
+
+
+
+                    {{-- ===== LEVEL 2: ANGGOTA STRUKTURAL ===== --}}
+                    @if($memberCount > 0)
+                    <div class="flex justify-center flex-wrap gap-4 sm:gap-6 mt-8">
+                        @foreach($members as $i => $org)
+                        @php
+                            $circles = [
+                                "<circle cx='85' cy='15' r='30'/><circle cx='15' cy='80' r='20'/><circle cx='70' cy='90' r='10'/>",
+                                "<circle cx='80' cy='20' r='28'/><circle cx='20' cy='75' r='22'/><circle cx='90' cy='80' r='12'/>",
+                                "<circle cx='90' cy='10' r='32'/><circle cx='10' cy='85' r='18'/><circle cx='60' cy='95' r='14'/>",
+                                "<circle cx='75' cy='15' r='25'/><circle cx='15' cy='70' r='20'/><circle cx='85' cy='75' r='15'/>",
+                                "<circle cx='88' cy='12' r='30'/><circle cx='12' cy='88' r='22'/><circle cx='55' cy='92' r='11'/>",
+                                "<circle cx='82' cy='18' r='28'/><circle cx='18' cy='82' r='24'/><circle cx='72' cy='88' r='10'/>",
+                            ];
+                            $circlePattern = $circles[$i % count($circles)];
+                        @endphp
+                        <div class="bg-emerald-800 border border-emerald-600 rounded-2xl shadow-md p-4 text-center w-44 hover:shadow-xl hover:bg-emerald-700 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                            <!-- Motif Lingkaran -->
+                            <div class="absolute inset-0 opacity-[0.12] pointer-events-none">
+                                <svg viewBox="0 0 100 100" class="w-full h-full" fill="white">{!! $circlePattern !!}</svg>
+                            </div>
+                            <div class="relative w-16 h-16 bg-emerald-700 rounded-full mx-auto mb-3 overflow-hidden ring-4 ring-emerald-600 shadow-sm">
+                                <img src="{{ $org->image ? asset('storage/' . $org->image) : 'https://ui-avatars.com/api/?name='.urlencode($org->name).'&color=047857&background=d1fae5&size=128' }}" alt="{{ $org->name }}" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <p class="relative text-xs font-bold text-emerald-300 uppercase tracking-wide mb-1 leading-tight">{{ $org->position }}</p>
+                            <h4 class="relative font-semibold text-white text-xs leading-snug">{{ $org->name }}</h4>
+                        </div>
+                        @endforeach
                     </div>
-                    @endforelse
+                    @endif
+
+                </div>
+            </div>
+            @else
+            <div class="py-10 text-center text-gray-500 bg-white rounded-2xl border border-dashed border-emerald-200">
+                Belum ada data struktur organisasi yang ditambahkan.
+            </div>
+            @endif
+        </section>
+
+        <!-- 4. GURU & TENAGA KEPENDIDIKAN -->
+        <section id="guru" class="scroll-mt-32">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4">
+                    Tim Pengajar & Staf
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-900">Guru & Tenaga Kependidikan</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Daftar pengajar beserta profil singkat, terdiri dari nama, NIP, dan mata pelajaran yang diampu.</p>
+            </div>
+
+            <div class="modern-card modern-card-soft overflow-hidden max-w-5xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-emerald-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-emerald-800 uppercase tracking-wider">No</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-emerald-800 uppercase tracking-wider">Nama</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-emerald-800 uppercase tracking-wider">NIP</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-emerald-800 uppercase tracking-wider">Mata Pelajaran</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                            @forelse($teachers as $teacher)
+                            <tr class="hover:bg-emerald-50/50 transition">
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ $loop->iteration }}</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">
+                                            <img src="{{ $teacher->image ? asset('storage/' . $teacher->image) : 'https://ui-avatars.com/api/?name='.urlencode($teacher->name).'&color=047857&background=d1fae5&size=80' }}" alt="{{ $teacher->name }}" class="w-full h-full object-cover">
+                                        </div>
+                                        <span class="text-sm font-semibold text-slate-900">{{ $teacher->name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600">{{ $teacher->nip ?? '—' }}</td>
+                                <td class="px-6 py-4 text-sm text-emerald-700 font-medium">{{ $teacher->subject ?? '—' }}</td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="4" class="px-6 py-10 text-center text-gray-500">
+                                    Belum ada data guru yang ditambahkan.
+                                </td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
-
-
-        <!-- 4. FASILITAS SEKOLAH -->
+        <!-- 5. FASILITAS SEKOLAH -->
         <section id="fasilitas" class="scroll-mt-32">
             <div class="text-center mb-16">
                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-600 text-xs font-bold uppercase tracking-wider mb-4">
@@ -191,7 +284,7 @@
                 @forelse($facilities as $facility)
                 <div class="modern-card modern-card-hover modern-card-soft overflow-hidden group">
                     <div class="h-48 overflow-hidden bg-slate-200 relative">
-                        <img src="{{ $facility->image ? asset('storage/' . $facility->image) : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $facility->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="{{ $facility->image ? (str_starts_with($facility->image, 'http') ? $facility->image : asset('storage/' . $facility->image)) : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $facility->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         @if($facility->category)
                         <div class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">{{ $facility->category }}</div>
                         @endif

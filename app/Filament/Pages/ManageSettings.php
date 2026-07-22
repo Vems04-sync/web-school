@@ -14,10 +14,11 @@ class ManageSettings extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationGroup = 'Pengaturan';
+    protected static ?string $navigationGroup = 'Pendaftaran';
     protected static ?string $navigationIcon = 'heroicon-o-link';
     protected static ?string $navigationLabel = 'Link Google Form';
-    protected static ?string $title = 'Pengaturan Link Google Form';
+    protected static ?string $title = 'Pengaturan Link Pendaftaran (Google Form)';
+    protected static ?int $navigationSort = 2;
     protected static string $view = 'filament.pages.manage-settings';
 
     public ?array $data = [];
@@ -61,7 +62,7 @@ class ManageSettings extends Page implements HasForms
         Setting::set('extracurricular_gform_url', $data['extracurricular_gform_url']);
 
         Notification::make()
-            ->title('Pengaturan berhasil disimpan!')
+            ->title('Link pendaftaran berhasil disimpan!')
             ->success()
             ->send();
     }
