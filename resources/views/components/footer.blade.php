@@ -113,9 +113,8 @@
             </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-emerald-900 text-sm text-center flex flex-col md:flex-row justify-between items-center">
+        <div class="mt-12 pt-8 border-t border-emerald-900 text-sm text-center flex flex-col md:flex-row justify-center items-center">
             <p>&copy; {{ date('Y') }} SMA AL-ISLAMI. Hak Cipta Dilindungi.</p>
-            <p class="mt-2 md:mt-0">Dikembangkan oleh Tim IT</p>
         </div>
     </div>
 </footer>
