@@ -98,8 +98,8 @@
                         </svg>
                         <div>
                             <p class="text-[10px] uppercase tracking-widest font-bold text-emerald-200">Terakreditasi</p>
-                            <p class="text-base font-black text-white leading-tight">Grade A</p>
-                            <p class="text-xs text-emerald-100 font-semibold">Sangat Baik</p>
+                            <p class="text-base font-black text-white leading-tight">Akreditasi B</p>
+                            <p class="text-xs text-emerald-100 font-semibold">Baik</p>
                         </div>
                     </div>
                 </div>

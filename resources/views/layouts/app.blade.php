@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="SMA AL-ISLAMI - Sekolah menengah atas dengan kurikulum unggul, berbasis nilai Islami, dan profesional dalam mencetak generasi berprestasi.">
+    <meta name="keywords" content="sekolah sma al islami, sma al islami, pendaftaran sma al islami, sma islam terbaik, sekolah unggulan, pendidikan islam">
+    <meta name="author" content="SMA AL-ISLAMI">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ isset($title) ? $title . ' - SMA AL-ISLAMI' : 'SMA AL-ISLAMI - Unggul, Islami, Profesional' }}">
+    <meta property="og:description" content="SMA AL-ISLAMI - Sekolah menengah atas dengan kurikulum unggul, berbasis nilai Islami, dan profesional.">
+    <meta property="og:image" content="{{ asset('storage/SMA AL-ISLAMI.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ isset($title) ? $title . ' - SMA AL-ISLAMI' : 'SMA AL-ISLAMI - Unggul, Islami, Profesional' }}">
+    <meta property="twitter:description" content="SMA AL-ISLAMI - Sekolah menengah atas dengan kurikulum unggul, berbasis nilai Islami, dan profesional.">
+    <meta property="twitter:image" content="{{ asset('storage/SMA AL-ISLAMI.png') }}">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=2">
